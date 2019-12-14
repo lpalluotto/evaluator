@@ -366,8 +366,9 @@ Public Class Evaluator
                   ValueLeft = tokenizer.value.ToString
                   tokenizer.NextToken()
                   Exit Do
-               Case eTokenType.value_number
-                        ValueLeft = Double.Parse(tokenizer.value.ToString, Globalization.CultureInfo.InvariantCulture)
+                    Case eTokenType.value_number
+                        'ValueLeft = New Cast().stringDoDouble(tokenizer.value.ToString)
+                        ValueLeft = Double.Parse(tokenizer.value.ToString, Globalization.NumberStyles.Any, Globalization.CultureInfo.InvariantCulture)
                         tokenizer.NextToken()
                   Exit Do
                Case eTokenType.open_parenthesis
