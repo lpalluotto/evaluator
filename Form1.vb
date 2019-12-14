@@ -140,9 +140,10 @@ Public Class Form1
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
       Try
-         AddLine(tbExpression.Text)
-         Dim res As String = Evaluator1.Eval(tbExpression.Text).ToString
-         AddLine(" => " & res)
+            AddLine(tbExpression.Text)
+            Dim value As String = tbExpression.Text.Replace(",", "")
+            Dim res As String = Evaluator1.Eval(value).ToString
+            AddLine(" => " & res)
       Catch ex As Exception
          AddLine(" => Error :" & ex.Message)
       End Try
